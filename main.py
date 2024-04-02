@@ -69,7 +69,7 @@ def task2(file):
             if text[i][j] in consonant:
                 consonants += 1
 
-    file_handler = open("Task2_output", "w")
+    file_handler = open("Task2_output.txt", "w")
     file_handler.write(f"characters: {characters}\n")
     file_handler.write(f"lines: {lines}\n")
     file_handler.write(f"vowels: {vowels}\n")
@@ -77,8 +77,24 @@ def task2(file):
     file_handler.write(f"digits: {digits}")
     file_handler.close()
 
-#task2("Task2.txt")
+task2("Task2.txt")
 
+"""Task3
+Task 3
+You have a text file. Delete the last line from it. Write
+the result to another file. """
+
+def task3(file):
+    file_handler = open(file, "r")
+    text = file_handler.readlines()
+    file_handler.close()
+
+    file_handler = open("Task3_output.txt", "w")
+    for i in range(len(text)-1):
+        file_handler.writelines(text[i])
+    file_handler.close()
+
+task3("Task3-6.txt")
 
 
 
