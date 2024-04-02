@@ -77,7 +77,7 @@ def task2(file):
     file_handler.write(f"digits: {digits}")
     file_handler.close()
 
-task2("Task2.txt")
+#task2("Task2.txt")
 
 """Task3
 Task 3
@@ -94,11 +94,29 @@ def task3(file):
         file_handler.writelines(text[i])
     file_handler.close()
 
-task3("Task3-6.txt")
+#task3("Task3-6.txt")
 
+"""Task 4
+You have a text file. Find the length of the longest line."""
 
+def task4(file):
+    file_handler = open(file, "r")
+    text = file_handler.readlines()
+    file_handler.close()
 
+    counter = 0
+    max_count = 0
+    for i in range(len(text)):
+        if counter > max_count:
+            max_count = counter
+        counter = 0
+        for j in range(len(text[i])):
+            counter += 1
 
+        if counter > max_count:
+            max_count = counter
 
+    return(max_count)
 
+# print(f"The longest line is {task4("Task3-6.txt")} characters long.")
 
