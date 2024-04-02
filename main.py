@@ -29,3 +29,60 @@ def task1(file1, file2):
 
 # task1("Task1_1.txt", "Task1_2.txt")
 
+
+# Task 2
+# You have a text file. Create a new file and write the following statistics based on the source file to it:
+# ■ Number of characters;
+# ■ Number of lines;
+# ■ Number of vowels;
+# ■ Number of consonants;
+# ■ Number of digits.
+
+def task2(file):
+    file_handler = open(file, "r")
+    text = file_handler.readlines()
+    file_handler.close()
+
+    for i in range(len(text) - 1):
+        text[i] = text[i].rstrip("\n")
+
+    characters = 0
+    lines = 0
+    vowels = 0
+    consonants = 0
+    digits = 0
+
+    vowel = "aeiouyAEIOUY"
+    consonant = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ"
+
+
+    for i in range(len(text)):
+        lines += 1
+
+        for j in range(len(text[i])):
+            characters += 1
+
+            if text[i][j].isdigit() == True:
+                digits += 1
+            if text[i][j] in vowel:
+                vowels += 1
+            if text[i][j] in consonant:
+                consonants += 1
+
+    file_handler = open("Task2_output", "w")
+    file_handler.write(f"characters: {characters}\n")
+    file_handler.write(f"lines: {lines}\n")
+    file_handler.write(f"vowels: {vowels}\n")
+    file_handler.write(f"consonants: {consonants}\n")
+    file_handler.write(f"digits: {digits}")
+    file_handler.close()
+
+#task2("Task2.txt")
+
+
+
+
+
+
+
+
