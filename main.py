@@ -120,3 +120,31 @@ def task4(file):
 
 # print(f"The longest line is {task4("Task3-6.txt")} characters long.")
 
+""" Task 5
+You have a text file. Count how many times the word
+specified by the user occurs in it."""
+
+user_input = input("Input the searched word: ")
+def task5(file, word):
+    file_handler = open(file, "r")
+    text = file_handler.read()
+    file_handler.close()
+
+    wordlist = text.rsplit()
+    for i in range(len(wordlist)):
+        wordlist[i] = wordlist[i].rstrip('.,"')
+    for i in range(len(wordlist)):
+        wordlist[i] = wordlist[i].lower()
+
+    print(wordlist)
+
+
+    counter = 0
+    for i in wordlist:
+        if i == word:
+            counter += 1
+
+    return f"Your word has been found {counter} times."
+
+print(task5("Task3-6.txt", user_input))
+
